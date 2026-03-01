@@ -1,0 +1,83 @@
+name : test
+
+seed : 3
+gpu : 0
+use_cuda : True
+
+# PPO parameters
+clip_param : 0.2
+max_grad_norm : 0.5
+ppo_epoch : 10
+gamma : 0.95
+lr : 2.5e-3
+
+# DPO parameters
+dpo_lr : 1.0e-4
+
+# canvas config
+grid : 224
+
+# training episode
+episode : 1500
+PO_episode : 500
+
+# training epoch
+epoch : 10
+PO_epoch: 10
+
+# buffer size
+buffer_size : 10 # number of trajectory
+
+# training batch size
+batch_size : 256
+preference_batch_size : 4
+
+# batch size
+rollout_batch_size : 10
+
+# Online PO training parameters
+num_trajectories_per_iteration : 20
+
+# if use wire / df / hier / port / reg / position
+used_masks : ["reg", "hier", "df", "wire", "port", "pos"]
+
+# trade-off parameters
+trade_off_coeff : [0.45, 0.2, 0.15, 0.15, 0.05]
+
+# dataflow cutoff
+dataflow_cutoff : 0.00
+
+# macro halo
+halo: 0
+
+soft_coefficient : 1.0
+
+use_reward_scaling : True
+
+disable_tqdm : True
+
+# core area block
+core_area_block: 0
+
+# For DPO
+load_dir : "rl_logs/superblue3/EXPlace/"
+
+# if use corner
+corner_flag : False
+late_stage_episode : 0
+
+# if use prototype
+prototype_flag : False
+# if use relative improvement as reward
+regulator_flag : False
+
+# if use dmp for evaluation
+use_dmp_for_evaluation : True
+use_timer_for_evaluation : True
+
+# actor architecture: "parallel" (local + global then merge) or "sequential" (local -> global then merge with local summary)
+actor_arch : "sequential"
+# for sequential arch: number of summary channels from local branch (local outputs 2*k for current/next)
+local_summary_k : 2
+
+log_dir : "./"

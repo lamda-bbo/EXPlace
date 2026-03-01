@@ -1,0 +1,1 @@
+docker run --gpus all -it -v $(pwd):/workspace gaocr/dreamplace:cuda bash
