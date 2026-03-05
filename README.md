@@ -13,7 +13,7 @@ Nanjing University | Huawei Noah's Ark Lab
 ## 🌟 Highlights
 
 - 🏆 **State-of-the-art PPA**: Best average rank across all critical metrics (rWL, WNS, TNS, DRC) on both ICCAD 2015 and OpenROAD benchmarks
-- ⚡ **7.74% TNS improvement** and **32.53% WNS improvement** over the runner-up on ICCAD 2015
+- ⚡ **32.53% TNS improvement** and **7.74% WNS improvement** over the runner-up on ICCAD 2015
 - 🔄 Outperforms advanced analytical, black-box optimization, and prior RL-based placers
 
 ---
@@ -40,7 +40,7 @@ Existing RL-based macro placement methods optimize oversimplified proxy objectiv
    git clone <repository_url>
    cd explace
   ```
-2. **Download benchmarks, DREAMPlace folder and preprocessed data** into the project root: https://drive.google.com/drive/folders/110ZVI-eR-HlzOflRsHC_XgpEJXT0uELN?usp=share_link
+2. **Download Docker file, benchmarks, DREAMPlace, and preprocessed data** from the Google Drive link: https://drive.google.com/drive/folders/110ZVI-eR-HlzOflRsHC_XgpEJXT0uELN?usp=share_link
 3. **Load the Docker image** (`.tar.gz`):
   ```bash
    docker load -i explace_env.tar.gz
