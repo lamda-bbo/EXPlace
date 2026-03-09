@@ -76,7 +76,7 @@ use_dmp_for_evaluation : True
 use_timer_for_evaluation : True
 
 # actor architecture: "parallel" (local + global then merge) or "sequential" (local -> global then merge with local summary)
-actor_arch : "sequential"
+actor_arch : "parallel"
 # for sequential arch: number of summary channels from local branch (local outputs 2*k for current/next)
 local_summary_k : 2
 
