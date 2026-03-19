@@ -47,6 +47,7 @@ Existing RL-based macro placement methods optimize oversimplified proxy objectiv
    bash script/start_docker.sh
   ```
    Then run your commands inside a container from that image.
+   
 4. **Make DREAMPlace** for global placement:
   ```bash
   bash script/make.sh
