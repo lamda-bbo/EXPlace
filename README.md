@@ -176,7 +176,6 @@ explace/
 │   ├── make.sh             # Build DREAMPlace (cmake, make, install)
 │   ├── run_RL.sh           # Batch training: multiple designs / GPUs
 │   └── start_docker.sh     # Start Docker with GPU and mount repo to /workspace
-├── dataflow_info/         # Precomputed dataflow (from Google Drive)
 ├── processed_data/        # Cached env params (from Google Drive)
 ├── benchmarks/            # Benchmarks (from Google Drive)
 └── DREAMPlace/            # Global placer and post-placement timer (from Google Drive)
