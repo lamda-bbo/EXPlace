@@ -1,6 +1,6 @@
 # EXPlace: Expertise Can Be Helpful for Reinforcement Learning-based Macro Placement
 
-This floder includes: **placement DEF files** and **full evaluation flows** that generates the performance results shown in 2. 
+This floder includes: **placement DEF files** and **full evaluation flows** that generates the performance results shown in Table 3. 
 
 We would like to promote replication and convenient validation of our results. 
 
