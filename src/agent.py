@@ -96,8 +96,9 @@ class PPOAgent():
             
             actor_loss_lst  = []
             critic_loss_lst = []
+            batch_size = min(self.batch_size, self.buffer_capacity)
             for _ in range(self.args.epoch):
-                for index in tqdm(BatchSampler(SubsetRandomSampler(range(self.buffer_capacity)), self.batch_size, True),
+                for index in tqdm(BatchSampler(SubsetRandomSampler(range(self.buffer_capacity)), batch_size, False),
                     disable = self.args.disable_tqdm):
                     self.training_step += 1
                     action_prob = self.actor(state[index].to(self.args.device))

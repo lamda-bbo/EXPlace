@@ -195,3 +195,6 @@ Log and checkpoint paths follow `log_dir` and the run timestamp, typically `rl_l
 }
 ```
 
+### Acknowledgments
+
+This project builds upon [OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD) and [DREAMPlace](https://github.com/limbo018/DREAMPlace). We thank the authors and contributors of both projects for their open-source tools and benchmarks.

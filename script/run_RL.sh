@@ -30,7 +30,7 @@ while [ $idx -lt $num_designs ]; do
         gpu_idx=$(( (i - idx) % num_gpus ))
         gpu_id=${GPU_IDS[$gpu_idx]}
         echo "Starting $design on GPU $gpu_id"
-        python -m src.main --benchmark "$design" --seed 3 --config iccad --gpu "$gpu_id" &
+        python -m src.main --benchmark "$design" --seed 3 --config or --gpu "$gpu_id" &
     done
     wait
     idx=$batch_end

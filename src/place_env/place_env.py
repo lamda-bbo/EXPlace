@@ -218,9 +218,8 @@ class PlaceEnv():
 
         if self.corner_flag:
             corners = self.find_all_corners(macro)
-            # find the nearest corner
-            nearest_corner = self.find_nearest_corner(corners, x, y)
-            x, y = nearest_corner
+            if len(corners) > 0:
+                x, y = self.find_nearest_corner(corners, x, y)
         
             # Visualize current step before action execution if visualization is enabled
             if self.visualize_flag:
@@ -584,8 +583,13 @@ class PlaceEnv():
         y_col = self.coef_y * np.minimum(y1_col, y2_col)
         y_mask = y_col[None, :].repeat(self.grid, axis=0)
 
-        mask = x_mask + y_mask
-        # mask = np.minimum(x_mask, y_mask)
+        regularity_mode = getattr(self.args, 'regularity_mode', 'corner_regular')
+        if regularity_mode == 'edge_regular':
+            mask = np.minimum(x_mask, y_mask)
+        elif regularity_mode == 'corner_regular':
+            mask = x_mask + y_mask
+        else:
+            raise ValueError(f"Unknown regularity_mode: {regularity_mode}")
         if self.args.regulator_flag:
             mask -= mask[x, y]
 

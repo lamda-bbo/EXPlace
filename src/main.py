@@ -180,8 +180,7 @@ def main(args, config_path):
             if args.use_dmp_for_evaluation:
                 trajectory = inference(args, model_path=None, agent=agent, test_env=test_env)
                 gp_hpwl, tns, wns = test_problem.evaluate(trajectory['macro_pos'])
-                # Update best TNS (higher is better): save macro_pos, .def, .png and model
-                if tns > best_tns:
+                if args.use_timer_for_evaluation and tns > best_tns:
                     best_tns = tns
                     th.save(trajectory['macro_pos'], os.path.join(args.placement_dir, 'best_tns_macro_pos.pt'))
                     test_problem.save_placement(os.path.join(args.placement_dir, 'best_tns.def'))
@@ -229,6 +228,10 @@ def main(args, config_path):
         if current_reward > best_reward:
             best_reward = current_reward
             best_reward_info = reward_info.copy()
+            if (macro_pos := reward_info.get('macro_pos')) and not args.debug:
+                gp_hpwl, _, _ = test_problem.evaluate(macro_pos)
+                test_problem.save_placement(os.path.join(args.placement_dir, 'best_reward.def'))
+                test_problem.plot(gp_hpwl, os.path.join(args.visualization_dir, 'best_reward.png'))
 
         # Current time step model checkpoint (single file, overwrite each batch)
         if not args.debug:
